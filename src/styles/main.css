@@ -1,0 +1,100 @@
+main {
+  position: relative;
+  margin-inline: auto;
+  max-width: 70rem;
+  width: 100%;
+  padding: 1rem 5rem;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease;
+
+  .title-header {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    gap: 0.75rem;
+
+    .title h1 {
+      font: var(--ft);
+      color: var(--content-primary);
+    }
+    .title p {
+      font: var(--fp-m);
+      color: var(--content-secondary);
+      margin-right: 5rem;
+    }
+
+    .custom-input-date {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 11.75rem;
+    }
+
+    input[type="date"] {
+      appearance: none;
+      background: none;
+      border: 1px solid var(--border-primary);
+      border-radius: 0.75rem;
+      color: var(--content-secondary);
+      padding: 10px 40px 10px 40px;
+      font-size: 1rem;
+      width: 100%;
+      height: 90%;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      font: var(--fp-base);
+
+      &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+    }
+
+    .custom-input-date::before {
+      content: url(../assets/calendar.svg);
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .custom-input-date::after {
+      content: url(../assets/arrow-down.svg);
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
+}
+
+@media (width <= 40rem) {
+  main {
+    max-width: 25rem;
+    padding: 1.25rem;
+  }
+
+  .title-header {
+    flex-direction: column;
+  }
+
+  .new-schedule {
+    position: initial;
+    max-width: 13rem;
+    bottom: 50%;
+    left: 0;
+    transform: translate(0, -10%);
+    margin: 1rem;
+  }
+}
